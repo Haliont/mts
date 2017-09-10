@@ -1,0 +1,11 @@
+include ../blocks/faq/faq
+
+block pageInfo
+
+doctype html
+html(lang='ru')
+  include ../blocks/head/head
+  body(class="page page-" + page.name)
+    include ../svg/arrow.svg
+    block content
+    block vendors

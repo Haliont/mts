@@ -1,0 +1,13 @@
+extends ../layouts/main
+
+block pageInfo
+  -
+    page = {
+      name: 'home',
+      title: 'Ответы на вопросы',
+      appTitle: 'Ответы на вопросы',
+      description: 'Lorem ipsum dolor sit amet'
+    }
+
+block content
+  +faq()

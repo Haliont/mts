@@ -1,0 +1,209 @@
+.faq
+  +wrapper()
+  display: flex
+  padding:
+    top: 10px
+    bottom: 10px
+
+  @media (max-width: 800px)
+    flex-wrap: wrap
+
+.f-questions,
+.f-answer
+  width: 100%
+
+  &__body
+    height: 600px
+    overflow-y: auto
+    box-shadow: $shadowMain
+    border-radius: $borderRadius
+    background: $colorBg
+
+  &__header
+    line-height: 32px
+    text-align: center
+    font-size: rem(12px)
+    color: $colorGray
+    font-weight: 400
+    height: 32px
+    margin-bottom: 10px
+    box-shadow: $shadowMain
+    border-radius: $borderRadius
+    background: $colorBg
+
+.f-questions
+  max-width: 290px
+  margin-right: 10px
+
+  @media (max-width: 800px)
+    max-width: 100%
+    margin-right: 0
+    margin-bottom: 20px
+
+  ul
+    list-style-type: none
+
+  &__body
+    padding: 2.5px 14px
+
+    @media (max-width: 800px)
+      height: auto
+      max-height: 600px
+
+  &__item
+    +noselection()
+    font-size: rem(12px)
+    padding-right: 15px
+    padding-top: 7.5px
+    padding-bottom: 7.5px
+
+    position: relative
+
+    .f-questions__item
+      padding-top: 7.5px
+
+    &:hover
+      cursor: pointer
+
+    svg
+      width: 20px
+      height: 10px
+      fill: $colorArrowBtn
+      transform: rotate(-90deg)
+
+      position: absolute
+      top: 12px
+      right: -5px
+
+      transition: transform .25s
+
+
+    &_hasList
+
+      > svg
+        fill: $colorArrowList
+        transform: rotate(0deg)
+
+  &__input
+    display: none
+
+    &:checked
+
+      & ~ .f-questions__itemList
+        display: block
+        opacity: 1
+
+      & ~ svg
+        transform: rotate(-180deg)
+
+  &__label
+    cursor: pointer
+
+    display: block
+    padding-right: 15px
+    padding-top: 7.5px
+    padding-bottom: 7.5px
+    margin-right: -15px
+    margin-top: -7.5px
+    margin-bottom: -7.5px
+
+    position: relative
+    z-index: 10
+
+  &__itemList
+    display: none
+    opacity: 0
+    transition: all .25s
+
+    padding: 6px 10px
+      left: 15px
+    margin-right: -5px
+    margin-top: 8px
+    border-radius: $borderRadius
+    background-color: $colorBg
+    box-shadow: $shadowMain
+
+    > .f-questions__item
+      padding-top: 4px
+      padding-bottom: 4px
+
+      svg
+        top: 7.5px
+
+.f-answer
+  max-width: 680px
+
+  @media (max-width: 800px)
+    max-width: 100%
+
+  &__body
+    padding: 34px 60px
+
+    @media (max-width: 500px)
+      padding: 14px 20px
+
+    @media (max-width: 410px)
+      padding: 14px 10px  
+
+  &__title
+    font-weight: bold
+    font-size: 36px
+    color: $colorTitle
+    margin-bottom: 45px
+
+  &__step
+    margin-bottom: 65px
+
+    position: relative
+
+    &:nth-of-type(2)
+
+      .f-answer__drWebArrow
+        bottom: 38px
+        left: 140px
+
+        @media (max-width: 850px)
+          left: 140px - 75px
+
+    &:nth-of-type(3)
+
+      .f-answer__drWebArrow
+        bottom: -28px;
+        left: 180px
+
+        @media (max-width: 850px)
+          left: 140px - 75px
+
+  &__stepTitle
+    color: $colorSubTitle
+    margin-bottom: 35px
+    margin-left: 20px
+
+    @media (max-width: 850px)
+      margin-left: 0
+
+  &__img
+    margin-left: 75px
+
+    @media (max-width: 850px)
+      margin-left: 0
+
+  &_drWeb
+
+    .f-answer
+
+      &__drWebArrow
+        width: 72px
+        height: 86px
+
+        position: absolute
+        z-index: 2
+
+      &__drWebDropDown
+        position: absolute
+        left: 90px
+        bottom: -52px
+        z-index: 1
+
+        @media (max-width: 850px)
+          left: 90px - 75px

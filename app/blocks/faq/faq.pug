@@ -1,0 +1,75 @@
+mixin faq()
+  main.faq&attributes(attributes)
+    // BEGIN f-questions
+    .f-questions
+      header.f-questions__header Вопрос
+      .f-questions__body
+
+        - var texts1 = ["Как авторизоваться?", "Как восстановить пароль?", "Как заказать “Продукты и Решения”"]
+
+        - var texts2 = ["Как кушать шоколад с аппетитом?", "Как ходить если пол - лава?", "Как заказать колу бесплатно и без смс"]
+
+        - var dropdownTexts = ["Dr.Web", "МТС Коммуникатор","услугу «Мобильные сотрудники»","услугу «@втосекретарь»","«Виртуальный сервер»","услугу «Управление устройствами»","услугу «Бесплатный вызов 8-800»","услугу «Защита от внешних","DoS/DDoS-атак»","«Kaspersky Small Office Security 5»","«Kaspersky Endpoint Security»","«Kaspersky Internet Security»"]
+
+        mixin item(text)
+          li.f-questions__item&attributes(attributes)= text
+            svg
+              use(xlink:href="#arrow")
+
+        ul.f-questions__list
+          +item("Как зарегистрировать учетную запись?")(tab-index="1")
+
+          - for(var i = 0; i < texts1.length; i += 1)
+            - var id = 'cb' + Math.random().toFixed(2) * 100;
+
+            li.f-questions__item.f-questions__item_hasList
+              input.f-questions__input(name="questions" type="checkbox" id= id)
+              label.f-questions__label(for= id) #{texts1[i]}
+              svg
+                use(xlink:href="#arrow")
+              ul.f-questions__itemList
+                - for(var n = 0; n < dropdownTexts.length; n += 1)
+                  li.f-questions__item #{dropdownTexts[n]}
+                    svg
+                      use(xlink:href="#arrow")
+
+          +item("Как ловить динозавра?")
+
+          - for(var c = 0; c < texts2.length; c += 1)
+            - var id = 'cbx' + Math.random().toFixed(2) * 100;
+
+            li.f-questions__item.f-questions__item_hasList
+              input.f-questions__input(name="questions" type="checkbox" id= id)
+              label.f-questions__label(for= id) #{texts2[c]}
+              svg
+                use(xlink:href="#arrow")
+              ul.f-questions__itemList
+                - for(var n = 0; n < dropdownTexts.length; n += 1)
+                  li.f-questions__item #{dropdownTexts[n]}
+                    svg
+                      use(xlink:href="#arrow")
+
+
+    // END f-questions
+
+    // BEGIN f-answer
+    .f-answer.f-answer_drWeb
+      header.f-answer__header Ответ
+      .f-answer__body
+        h2.f-answer__title Как заказать Dr.Web
+        .f-answer__step
+          h3.f-answer__stepTitle Находим карточку товара
+          img(src="img/dr_web_1.png" alt="img").f-answer__img
+
+        .f-answer__step
+          h3.f-answer__stepTitle Выбираем план подписки
+          img(src="img/dr_web_1.png" alt="img").f-answer__img
+          img(src="img/arrow.svg" alt="Arrow").f-answer__drWebArrow
+
+        .f-answer__step
+          h3.f-answer__stepTitle Кликаем на кнопку
+          img(src="img/dr_web_1.png" alt="img").f-answer__img
+          img(src="img/arrow.svg" alt="Arrow").f-answer__drWebArrow
+          img(src="img/dr_web_2.png" alt="img").f-answer__drWebDropDown
+
+    // END f-answer
